@@ -15,7 +15,8 @@ class Randoms(commands.Cog):
         "👀",
         "Hey @user, your steam profile looks amazing bro 🗣️",
         "hey @user",
-        "I see you @user"
+        "I see you @user",
+        "Don't worry, that's ok"
     ]
 
     def __init__(self, bot):
@@ -27,7 +28,7 @@ class Randoms(commands.Cog):
         if message.author.bot:
             return
 
-        if( random.randint(0,100) > 98 ):
+        if( random.randint(0,100) > 97 ):
             await message.channel.send( random.choice(self.messages).replace("@user",message.author.name) )
 
 

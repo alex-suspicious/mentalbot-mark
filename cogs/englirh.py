@@ -16,7 +16,7 @@ class Englirh(commands.Cog):
         if message.author.bot:
             return
 
-        if( random.randint(0,100) > 98 ):
+        if( random.randint(0,100) > 97 ):
             await message.channel.send(message.content.replace("s","r") + " 🧦")
 
     @commands.Cog.listener("on_message")
