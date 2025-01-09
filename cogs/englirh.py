@@ -17,7 +17,7 @@ class Englirh(commands.Cog):
             return
 
         if( random.randint(0,100) > 97 ):
-            await message.channel.send(message.content.replace("s","r") + " 🧦")
+            await message.channel.send(message.content.replace("s","r").replace("с","р") + " 🧦")
 
     @commands.Cog.listener("on_message")
     async def random_reactions(self,message):
