@@ -53,9 +53,9 @@ class Randoms(commands.Cog):
             "Nuh uh"
         ]
 
-        await interaction.response.send_message(random.choice(thinking_messages))
+        await interaction.response.send_message(f"{question}\n" + random.choice(thinking_messages))
         await asyncio.sleep(3)
-        await interaction.edit_original_response(content=random.choice(answer_messages))
+        await interaction.edit_original_response(content=f"{question}\n" + random.choice(answer_messages))
 
 async def setup(bot):
     await bot.add_cog(Randoms(bot))
