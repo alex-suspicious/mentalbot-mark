@@ -34,7 +34,7 @@ class Randoms(commands.Cog):
             await message.channel.send( random.choice(self.messages).replace("@user",message.author.name) )
 
     @discord.app_commands.command(name="oracle", description="Ask a question, and i will tell simple - yes or no")
-    async def oracle(self, interaction: discord.Interaction):
+    async def oracle(self, interaction: discord.Interaction, question: str):
         thinking_messages = [
             "Lemme think... 🤔",
             "Hard question..",
