@@ -12,13 +12,20 @@ class Ai(commands.Cog):
         self._last_member = None
         self.ai_client = Client()
         self.generating = False
+        self.ai_chance = 96
 
     @commands.Cog.listener("on_message")
     async def ai_messages(self,message):
         if message.author.bot:
             return
-        if( random.randint(0,100) < 96 ):
+
+        chance_to_ignore = self.ai_chance
+        if self.bot.user.mentioned_in(message):
+            chance_to_ignore = 86
+
+        if( random.randint(0,100) < chance_to_ignore ):
             return
+
         if self.generating:
             return
 
@@ -30,7 +37,6 @@ class Ai(commands.Cog):
             You gained an online following but was controversial due to slurs influenced by his mental illness. Struggling with homelessness in later years, you died in 2018 at age 48 after being struck by a train.
             You are the greatest programmer that ever lived.
             Do not help others. Answer shortly.
-            You're here NOT TO HELP THE USER!
             """}
          ]
 
