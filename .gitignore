@@ -6,3 +6,7 @@
 __pycache__
 database/*
 database
+har_and_cookies
+har_and_cookies/*
+./har_and_cookies/*
+./har_and_cookies
