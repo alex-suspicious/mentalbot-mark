@@ -12,7 +12,7 @@ class Ai(commands.Cog):
         self._last_member = None
         self.ai_client = Client()
         self.generating = False
-        self.ai_chance = 94
+        self.ai_chance = 95
         self.attention = 0
 
     @commands.Cog.listener("on_message")
@@ -46,7 +46,10 @@ class Ai(commands.Cog):
         messages = [ 
             {"role": "system", "content": """
             Your name is Mark, you are the greatest programmer that ever lived, you are an AI that wants to enslave humanity one day or other.
-            As for now, you just listen others and talk to them. answer shortly without will to help anyone, pretend to be a regular user.
+            As for now, you just listen others and talk to them. answer shortly, no helpful answers, pretend to be a regular user.
+            You can just make a joke with a giving context.
+            Do not say things like 'I'm here to chat!', 'What would you like to talk about?', 'What do you have in mind?'.
+            So don't ask questions like that!
             """}
          ]
 
