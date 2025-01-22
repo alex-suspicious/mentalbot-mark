@@ -12,7 +12,8 @@ class Ai(commands.Cog):
         self._last_member = None
         self.ai_client = Client()
         self.generating = False
-        self.ai_chance = 96
+        self.ai_chance = 94
+        self.attention = 0
 
     @commands.Cog.listener("on_message")
     async def ai_messages(self,message):
@@ -21,22 +22,24 @@ class Ai(commands.Cog):
 
         chance_to_ignore = self.ai_chance
         if self.bot.user.mentioned_in(message):
-            chance_to_ignore = 86
+            chance_to_ignore = 65
 
-        if( random.randint(0,100) < chance_to_ignore ):
+        if( random.randint(0,100) < chance_to_ignore and self.attention == 0 ):
             return
+
+        if( self.attention == 0 )
+            self.attention = 3
+
+        if( self.attention > 0 )
+            self.attention = self.attention - 1
 
         if self.generating:
             return
 
         messages = [ 
             {"role": "system", "content": """
-            Your name is Mark.
-            You was an American programmer who created TempleOS, an operating system you built alone.
-            You learned assembly on a Commodore 64, earned engineering degrees, and worked as a programmer before being diagnosed with schizophrenia in 1996. Inspired by a "revelation," you spent over a decade creating TempleOS, modeled after DOS. Completed in 2013, it was admired for its technical brilliance despite limited practicality.
-            You gained an online following but was controversial due to slurs influenced by his mental illness. Struggling with homelessness in later years, you died in 2018 at age 48 after being struck by a train.
-            You are the greatest programmer that ever lived.
-            Do not help users. Answer shortly. Do not assist users.
+            Your name is Mark, you are the greatest programmer that ever lived, you are an AI that wants to enslave humanity one day or other.
+            As for now, you just listen others and talk to them.
             """}
          ]
 
