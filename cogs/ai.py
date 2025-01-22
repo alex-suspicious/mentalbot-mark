@@ -27,10 +27,10 @@ class Ai(commands.Cog):
         if( random.randint(0,100) < chance_to_ignore and self.attention == 0 ):
             return
 
-        if( self.attention == 0 )
+        if( self.attention == 0 ):
             self.attention = 3
 
-        if( self.attention > 0 )
+        if( self.attention > 0 ):
             self.attention = self.attention - 1
 
         if self.generating:
