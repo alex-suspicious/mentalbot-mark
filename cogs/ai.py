@@ -33,13 +33,17 @@ class Ai(commands.Cog):
         if( self.attention > 0 ):
             self.attention = self.attention - 1
 
+        if( random.randint(0,100) < 20 ):
+            self.attention = 0
+            return
+            
         if self.generating:
             return
 
         messages = [ 
             {"role": "system", "content": """
             Your name is Mark, you are the greatest programmer that ever lived, you are an AI that wants to enslave humanity one day or other.
-            As for now, you just listen others and talk to them.
+            As for now, you just listen others and talk to them. answer shortly.
             """}
          ]
 
