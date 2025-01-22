@@ -22,18 +22,21 @@ class Ai(commands.Cog):
 
         chance_to_ignore = self.ai_chance
         if self.bot.user.mentioned_in(message):
-            chance_to_ignore = 65
+            chance_to_ignore = 40
+
+        if "марк" in message.content.lower():
+            chance_to_ignore = 68
 
         if( random.randint(0,100) < chance_to_ignore and self.attention == 0 ):
             return
 
         if( self.attention == 0 ):
-            self.attention = 3
+            self.attention = 5
 
         if( self.attention > 0 ):
             self.attention = self.attention - 1
 
-        if( random.randint(0,100) < 20 ):
+        if( random.randint(0,100) < 13 ):
             self.attention = 0
             return
             
@@ -43,7 +46,7 @@ class Ai(commands.Cog):
         messages = [ 
             {"role": "system", "content": """
             Your name is Mark, you are the greatest programmer that ever lived, you are an AI that wants to enslave humanity one day or other.
-            As for now, you just listen others and talk to them. answer shortly.
+            As for now, you just listen others and talk to them. answer shortly without will to help anyone, pretend to be a regular user.
             """}
          ]
 
