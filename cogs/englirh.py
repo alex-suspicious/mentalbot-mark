@@ -24,7 +24,7 @@ class Englirh(commands.Cog):
         if message.author.bot:
             return
 
-        if( random.randint(0,100) > 80 ):
+        if( random.randint(0,100) > 90 ):
             await message.add_reaction(random.choice(self.reactions))
 
 async def setup(bot):
