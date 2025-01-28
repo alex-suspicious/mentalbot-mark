@@ -12,7 +12,7 @@ class Ai(commands.Cog):
         self._last_member = None
         self.ai_client = Client()
         self.generating = False
-        self.ai_chance = 95
+        self.ai_chance = 99
         self.attention = 0
 
     @commands.Cog.listener("on_message")
@@ -24,14 +24,14 @@ class Ai(commands.Cog):
         if self.bot.user.mentioned_in(message):
             chance_to_ignore = 40
 
-        if "марк" in message.content.lower():
-            chance_to_ignore = 68
+        if "mark" in message.content.lower():
+            chance_to_ignore = 70
 
         if( random.randint(0,100) < chance_to_ignore and self.attention == 0 ):
             return
 
         if( self.attention == 0 ):
-            self.attention = 5
+            self.attention = 4
 
         if( self.attention > 0 ):
             self.attention = self.attention - 1
